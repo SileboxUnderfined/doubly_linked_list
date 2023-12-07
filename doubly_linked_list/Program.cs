@@ -47,8 +47,18 @@
 
         public static void addToEnd(LinkedList list)
         {
-            Console.WriteLine("Введите значение нового элемента: ");
-            int value = Convert.ToInt32(Console.ReadLine());
+            int value;
+            inpValue:
+            try
+            {
+                Console.WriteLine("Введите значение нового элемента: ");
+                value = Convert.ToInt32(Console.ReadLine());
+            } catch (Exception)
+            {
+                Console.WriteLine("Введите значение правильно!");
+                goto inpValue;
+            }
+
 
             list.addToEnd(value);
 
@@ -57,10 +67,30 @@
 
         public static void addToId(LinkedList list)
         {
-            Console.Write("Введите ID нового элемента: ");
-            int id = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Введите значение для нового элемента: ");
-            int value = Convert.ToInt32(Console.ReadLine());
+            int id, value;
+
+            inpID:
+            try
+            {
+                Console.Write("Введите ID нового элемента: ");
+                id = Convert.ToInt32(Console.ReadLine());
+            } catch (Exception)
+            {
+                Console.WriteLine("Введите ID правильно");
+                goto inpID;
+            }
+
+            inpValue:
+            try
+            {
+                Console.Write("Введите значение для нового элемента: ");
+                value = Convert.ToInt32(Console.ReadLine());
+            } catch (Exception)
+            {
+                Console.WriteLine("Введите значение правильно");
+                goto inpValue;
+            }
+
 
             bool result = list.addToId(id, value);
 
@@ -72,8 +102,18 @@
 
         public static void deleteById(LinkedList list)
         {
-            Console.Write("Введите ID элемента: ");
-            int id = Convert.ToInt32(Console.ReadLine());
+            int id;
+            inpID:
+            try
+            {
+                Console.Write("Введите ID элемента: ");
+                id = Convert.ToInt32(Console.ReadLine());
+            } catch (Exception)
+            {
+                Console.WriteLine("Введите ID правильно");
+                goto inpID;
+            }
+
 
             list.deleteById(id);
 
